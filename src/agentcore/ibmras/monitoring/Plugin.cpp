@@ -161,6 +161,8 @@ Plugin* Plugin::processLibrary(const std::string &filePath) {
 	Plugin* plugin = NULL;
 	IBMRAS_DEBUG_1(fine, "Processing plugin library: %s", filePath.c_str());
 
+    if (filePath.find("agentcore.so") != string::npos) { return plugin; }
+
 	ibmras::common::util::LibraryUtils::Handle handle =
 			ibmras::common::util::LibraryUtils::openLibrary(filePath.c_str());
 	if (handle.isValid()) {
