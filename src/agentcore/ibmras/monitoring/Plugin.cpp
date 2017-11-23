@@ -230,7 +230,7 @@ Plugin* Plugin::processLibrary(const std::string &filePath) {
 			plugin->setType();
 		} else {
 			/* not a plugin so close the handle	*/
-			//ibmras::common::util::LibraryUtils::closeLibrary(handle);
+			ibmras::common::util::LibraryUtils::closeLibrary(handle);
 		}
 	} else {
 #if defined(WINDOWS)
