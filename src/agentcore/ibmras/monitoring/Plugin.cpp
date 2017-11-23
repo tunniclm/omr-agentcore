@@ -161,7 +161,7 @@ Plugin* Plugin::processLibrary(const std::string &filePath) {
 	Plugin* plugin = NULL;
 	IBMRAS_DEBUG_1(fine, "Processing plugin library: %s", filePath.c_str());
 
-    if ((filePath.find("libXCTest.so") != std::string::npos) { return plugin; }
+    if (filePath.find("libXCTest.so") != std::string::npos) { return plugin; }
 
 //    if ((filePath.find("libcpuplugin.so") == std::string::npos) &&
 //        (filePath.find("libenvplugin.so") == std::string::npos) &&
