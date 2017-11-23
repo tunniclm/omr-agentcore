@@ -161,22 +161,12 @@ Plugin* Plugin::processLibrary(const std::string &filePath) {
 	Plugin* plugin = NULL;
 	IBMRAS_DEBUG_1(fine, "Processing plugin library: %s", filePath.c_str());
 
-    //if (filePath.find("libagentcore.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("liblldb.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libswiftGlibc.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libcpuplugin.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("liblldb.so.4") != std::string::npos) { return plugin; }
-    //if (filePath.find("libswiftRemoteMirror.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libdispatch.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("liblldb.so.4.0.0") != std::string::npos) { return plugin; }
-    //if (filePath.find("libswiftSwiftOnoneSupport.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libenvplugin.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libmemplugin.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libXCTest.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libFoundation.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libsourcekitdInProc.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libhcapiplugin.so") != std::string::npos) { return plugin; }
-    //if (filePath.find("libswiftCore.so") != std::string::npos) { return plugin; }
+    if ((filePath.find("libcpuplugin.so") == std::string::npos) &&
+        (filePath.find("libenvplugin.so") == std::string::npos) &&
+        (filePath.find("libmemplugin.so") == std::string::npos) &&
+        (filePath.find("libhcapiplugin.so") == std::string::npos)) {
+        return plugin; 
+    }
 
 
 	ibmras::common::util::LibraryUtils::Handle handle =
